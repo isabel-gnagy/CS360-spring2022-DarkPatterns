@@ -1,0 +1,83 @@
+#header {
+  text-align: center; 
+  font-family: Arial;
+  font-size: 100px;
+  padding: px;
+}
+
+#item {
+    display: flex;
+    justify-content: space-between;
+}
+#old-price {
+    color: red;
+    text-decoration: line-through;
+    font-size: 20px;
+}
+#new-price {
+    font-size: 20px;
+}
+#dil{
+  display: none;
+}
+#action-button:hover + #dil{
+  display: block;
+  padding: 0px;
+}
+#action-button {
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 10px;    
+}
+#action-button:hover {
+    background-color: #555555;
+    color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td:hover {
+  background: rgba(230, 230, 230, 0.3)
+  }
+
+td{
+  padding: 20px;
+}
+
+img {
+  width: 300px;
+}
+
+body {
+  background-image: url('images/Clouds.jpg');
+}
+
+.popup {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+
+.contentbox {
+  position: relative;
+  width: 1000px;
+  height: 500px;
+  background: rgb(100, 135, 133);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.contentbox .content {
+  position: relative;
+  height: 200px;
+  width: 300px;
+}
