@@ -9,7 +9,7 @@
   <ul>
     <li>Followed the mock up</li>
     <li>"Welcome to Cob's" at the top</li>
-    <li>Cloud image below title</li>
+    <li>Clouds</li>
     <li>Scrollbar box in center with small text</li>
     <li>Shoes on both sides</li>   
   </ul>
@@ -25,8 +25,8 @@
           <li>No way of backing out of the popup unless you meet the requirements to continue</li>
         </ol> 
       <li>"Welcome to Cob's" at the top</li>
-      <li>Cloud image below title</li>
-      <li>Shoes two halves</li>   
+      <li>Clouds</li>
+      <li>Shoes on both sides</li>   
     </ul>
 
 </body>
