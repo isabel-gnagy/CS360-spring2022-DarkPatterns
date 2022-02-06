@@ -23,8 +23,7 @@
           <li>"I Agree" checked by default</li>
           <li>Must have "I Agree" check in order to continue</li>
           <li>No way of backing out of the popup unless you meet the requirements to continue</li>
-        </ol>  
-      </li> 
+        </ol> 
       <li>"Welcome to Cob's" at the top</li>
       <li>Cloud image below title</li>
       <li>Shoes two halves</li>   
