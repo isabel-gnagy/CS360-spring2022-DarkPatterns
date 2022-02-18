@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cob's</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+</head>
+<style>
+    body {
+      font-family: Arial;
+      font-size: 17px;
+      padding: 8px;
+      background-color:  rgb(151, 165, 182);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    .row {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 -16px;
+    }
+    
+    .col-25 {
+      -ms-flex: 25%; /* IE10 */
+      flex: 25%;
+    }
+    
+    .col-50 {
+      -ms-flex: 50%; /* IE10 */
+      flex: 50%;
+    }
+    
+    .col-75 {
+      -ms-flex: 75%; /* IE10 */
+      flex: 75%;
+    }
+    
+    .col-25,
+    .col-50,
+    .col-75 {
+      padding: 0 16px;
+    }
+    
+    .container {
+      background-color: #f2f2f2;
+      padding: 5px 20px 15px 20px;
+      border: 1px solid lightgrey;
+      border-radius: 3px;
+    }
+    
+    input[type=text] {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .icon-container {
+      margin-bottom: 20px;
+      padding: 7px 0;
+      font-size: 24px;
+    }
+    
+    .btn {
+      font-weight: bold;
+      background-color: #97a5b6;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      width: 100%;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+    
+    .btn:hover {
+      background-color: #5d90ce;
+    }
+    
+    a {
+      color: #2196F3;
+    }
+    
+    hr {
+      border: 1px solid lightgrey;
+    }
+    
+    span.price {
+      float: right;
+      color: grey;
+    }
+
+    td:hover {
+      background: #f2f2f2 
+    }
+
+</style>
+<body>
+    <div>
+        <div id="icon">
+            <a href="index.html"><img src="images/home.png" alt="home" style="height:20px; width:auto;"></a>
+            <a href="OGpage.html"><img src="images/back.png" alt="cart" style="height:20px; width:auto;"></a>
+        </div>
+        <h1 id="header">Cob's Seafood Emporium<img src="images/fishlogo.png" alt="logo" style="height: 70px; width:auto;"> </h1> 
+    </div>
+  <div class="col-25">
+    <div class="container">
+      <h2>Cart</h2>
+      <table>
+        <tr>
+          <th style="text-align: left; width: 20%;">Item</th>
+          <th></th>
+          <th style="text-align: right;">Quantity</th>
+          <th style="text-align: right;">Price</th>
+        </tr>
+        <tr>
+          <td><img src="images/sole.jpg" style="width: 150px;"></td>
+          <td>Sole</td>
+          <td style="text-align: right;"><input id="cart-quantity-input" type="number" value="1" min="1" style="height: 30px; width: 40px;" onchange="cartPriceUpdate()"></td>
+          <td style="text-align: right;"> <span class="cart-item-cost" id="item-price">70.00</span> each</td>
+        </tr>
+      </table>
+      <hr>
+      <p>Shipping & Handling<span class="price" id="cart-fee1" style="color:black">20.00</span></p>
+      <p>Tax<span class="price" id="cart-fee2" style="color:black">10.00</span></p>
+      <hr style="height:2px;border-width:0;color:gray;background-color:black">
+      <p><h3>Total <span class="price" style="color:black" id="cart-total"><b>100.00</b></span></h3></p>
+    </div>
+    <br><br>
+  </div>    
+  <div class="col-75">
+  
+    <div class="container">
+      <form action="/action_page.php">    
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Joe Shmoe">
+                  
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="joeshmoe@gmail.com">
+                  
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="adr" name="address" placeholder="123 Vine Street">
+                  
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="city" name="city" placeholder="New York">
+    
+              <div class="row">
+                <div class="col-50">
+                  <label for="state">State</label>
+                  <input type="text" id="state" name="state" placeholder="NY" >
+                </div>
+                <div class="col-50">
+                    <label for="zip">Zip</label>
+                    <input type="text" id="zip" name="zip" placeholder="11111">
+                </div>
+              </div>
+          </div>
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards <br> <img src="images/payment.png" style="height: 50px; width: auto;"><br></label>
+                
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="Joe M. Shmoe">
+                
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111222233334444">
+                
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="01">
+    
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2025">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;">
+          <input type="checkbox" name="agree" value="I agree" id="myCheck" onclick="isChecked()" checked>
+          <label for="agree">I agree to be billed <span id="agree-price">100.00</span> and solemly swear to adhere to law of no backies</label> <br>
+        </div>
+        <div style="display: flex;"> 
+        <input type="checkbox" name="accept" value="I agree" id="myCheck" onclick="isChecked()" checked>
+          <label for="accept">I accept to the terms and conditions of purchase <a href="TERMSCONDITIONSOFPURCHASE.html">here</a></label> <br>
+        </div>
+      </form>
+      <button class="btn" ><a href="thankyou.html" style="text-decoration: none; color: black;">Submit Order</a></button>
+    </div>
+  </div>
+</body>
+</html>
