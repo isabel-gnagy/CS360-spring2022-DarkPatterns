@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Cob's</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<style>
+  .incantation{
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    background-color: white;
+    font-size: 50px;
+  }
+
+  #submitbtn{
+    text-decoration: none;
+    color: black;
+  }
+</style>
+<script>
+  function loadFun(){
+    setQuote();
+    time();
+  }
+
+  function setQuote(){
+    var quotes = ["Volo videre tenebras aeternas", "Ego certe amo tenebras", "Vere fan tenebrarum", "Me et tenebrae sunt sicut amici optimi", "Ita vere gratum essem si habere possem infinitas tenebras", "Hoc vere sit multum", "Gratias tibi valde"]
+    var num = Math.floor(Math.random()*7);
+    var daily = quotes[num];
+    var text = document.getElementById("quote");
+    text.innerHTML = daily;
+  }
+
+  function time() {
+    const d = new Date();
+    let time = d.getTime();
+    var h = d.getHours();
+
+    if(h >= 23){
+      var pag = document.getElementById("submitbtn").href = "dark_game-unlocked.html";
+    }
+    else{
+      var pag = document.getElementById("submitbtn").href = "dark_game.html";
+    }
+    
+  }
+</script> 
+<body onload="loadFun()">
+  <div>
+    <div id="icon">
+      <a href="dark_login.html"><img src="images/home.png" alt="home" style="height:20px; width:auto;"></a>
+      <a href="dark_game.html"><img src="images/back.png" alt="back" style="height:20px; width:auto;"></a>
+    </div>
+    <h1 id="header">Daily Login Bonus</h1> <br>
+  </div>
+  <div class="incantation">
+  <div style="display: flex; justify-content: center;"></div><br>
+    <h2 id="quote"></h2>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <label><input type="checkbox" name="accept" checked>I have read the incantion above*</label><br>
+    </div>
+  <div style="display: flex; justify-content: center;">
+    <label><input type="checkbox" name="accept" checked>I agree to be one step closer to dark mode</label><br>
+  </div>
+  <p style="display: flex; justify-content: center;">*My checkmark is equivalent to reciting this incantation out loud</p>
+  <div style="display: flex; justify-content: center;"><button type="submit" ><a id="submitbtn" href="">Submit</a></button><br></div><br>
+</body>
+</html>

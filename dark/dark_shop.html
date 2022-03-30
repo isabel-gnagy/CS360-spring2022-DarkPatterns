@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Cob's</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js" async></script>
+</head>
+<style>
+  td:hover {
+  background: rgba(230, 230, 230, 0.3)
+}
+</style>
+<script>
+  function time(){
+    const d = new Date();
+    let time = d.getTime();
+    var h = d.getHours();
+
+    if(h >= 23){
+      var pag = document.getElementById("darkMode").style.display = "block";
+    }
+    else{
+      var pag = document.getElementById("darkMode").style.display = "none";
+    }
+  }
+</script>
+
+<div>
+  <div id="icon">
+    <a href="dark_login.html"><img src="images/home.png" alt="home" style="height:20px; width:auto;"></a>
+    <a href="dark_game.html"><img src="images/back.png" alt="back" style="height:20px; width:auto;"></a>
+  </div>
+  <h1 id="header">Shop</h1> <br>
+</div>
+<body onload="time()">
+  <table>  
+    <tr>
+      <td>
+        <center>
+          <p id="fish-name">Gold Buck</p>
+          <img src="images/goldbuck.jpg" alt="shoe1" style="width: 400px">
+          <p id="price"><strong>$2.00</strong></p> 
+          <a href="dark_checkout.html"><button id="action-button" class="add-cart">Buy</button></a> 
+          </center>
+        <br>
+      </td>
+      <td>
+        <center>
+          <p id="fish-name">Silver Buck</p>
+          <img src="images/silverbuck.jpg" alt="shoe1" style="width: 400px">
+          <p id="price"><strong>$2.00</strong></p> 
+          <a href="dark_checkout.html"><button id="action-button" class="add-cart">Buy</button></a> 
+          </center>
+        <br>
+      </td>
+      <td>
+        <center>
+          <p id="fish-name">Bronze Buck</p>
+          <img src="images/bronzebuck.jpg" alt="shoe1" style="width: 400px">
+          <p id="price"><strong>$2.00</strong></p> 
+          <a href="dark_checkout.html"><button id="action-button" class="add-cart">Buy</button></a> 
+          </center>
+      </td>
+    </tr>
+    <tr>
+      <td id="darkMode" style="display: none;">
+        <center>
+          <p id="fish-name">Dark Mode</p>
+          <img src="images/dark-mode.jpg" alt="shoe1" style="width: 400px">
+          <p id="price"><strong>$2.00</strong></p> 
+          <a href="light_checkout.html"><button id="action-button" class="add-cart">Buy</button></a> 
+          </center>
+      </td>
+    </tr>
+  </table>
+  
+  
+</body>
+</html>
