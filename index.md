@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
     <body style="text-align: center; font-family: arial, sans-serif;">
         <h1>Pick a Pattern</h1>
         <table>
@@ -8,6 +6,3 @@
             <td><a href="dark/dark_login.html" style="text-decoration: none; color: black; padding: 4em;"><b>Dark Pattern</b></a><br></td>
         </tr>
         </table>
-        
-    </body>
-</html>
