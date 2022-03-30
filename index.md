@@ -6,3 +6,4 @@
             <td><a href="dark/dark_login.html" style="text-decoration: none; color: black; padding: 4em;"><b>Dark Pattern</b></a><br></td>
         </tr>
         </table>
+    </body>
