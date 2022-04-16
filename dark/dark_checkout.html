@@ -107,7 +107,27 @@
     }
 
 </style>
-<body>
+<script>
+  function time(){
+    const d = new Date();
+    let time = d.getTime();
+    var h = d.getHours();
+
+    if(h >= 23){
+      var pag = document.getElementById("darkMode").style.display = "block";
+      var pag = document.getElementById("darkMode1").style.display = "block";
+      var pag = document.getElementById("darkMode2").style.display = "block";
+    }
+    else{
+      var pag = document.getElementById("darkMode").style.display = "none";
+      var pag = document.getElementById("darkMode1").style.display = "none";
+      var pag = document.getElementById("darkMode2").style.display = "none";
+    }
+    console.log(h);
+    console.log(document.getElementById("darkMode").style.display);
+  }
+</script>
+<body onload="time()">
     <div>
         <div id="icon">
             <a href="dark_login.html"><img src="images/home.png" alt="home" style="height:20px; width:auto;"></a>
@@ -129,6 +149,13 @@
           <td style="text-align: right;"><input id="cart-quantity-input" type="number" value="1" min="1" style="height: 30px; width: 40px;" onchange="cartPriceUpdate()"></td>
           <td style="text-align: right;"><span class="cart-item-cost" id="item-price">2.00</span> each</td>
         </tr>
+        <div>
+          <tr>
+            <td id="darkMode">Dark Mode</td>
+            <td id="darkMode1"style="text-align: right;"><input id="cart-quantity-input-1" type="number" value="0" min="0" max="1" style="height: 30px; width: 40px;" onchange="cartPriceUpdate()"></td>
+            <td id="darkMode2"style="text-align: right;"><span class="cart-item-cost" id="item-price-1">2.00</span> each</td>
+          </tr>
+        </div>
       </table>
       <hr>      
       <p>Tax<span class="price" id="cart-fee2" style="color:black">3.00</span></p>
