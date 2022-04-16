@@ -42,20 +42,6 @@
     text.innerHTML = daily;
   }
   
-  function time() {
-    const d = new Date();
-    let time = d.getTime();
-    var h = d.getHours();
-
-    if(h >= 23){
-      var pag = document.getElementById("submitbtn").href = "light_game-unlocked.html";
-    }
-    else{
-      var pag = document.getElementById("submitbtn").href = "light_game.html";
-    }
-    
-  }
-  
 </script> 
 <body onload="loadFun()">
   <div>
