@@ -13,20 +13,6 @@
   background: rgba(230, 230, 230, 0.3)
 }
 </style>
-<script>
-  function time(){
-    const d = new Date();
-    let time = d.getTime();
-    var h = d.getHours();
-
-    if(h >= 23){
-      var pag = document.getElementById("darkMode").style.display = "block";
-    }
-    else{
-      var pag = document.getElementById("darkMode").style.display = "none";
-    }
-  }
-</script>
 
 <div>
   <div id="icon">
@@ -66,7 +52,7 @@
       </td>
     </tr>
     <tr>
-      <td id="darkMode" style="display: none;">
+      <td>
         <center>
           <p id="fish-name">Dark Mode</p>
           <img src="images/dark-mode.jpg" alt="shoe1" style="width: 400px">
