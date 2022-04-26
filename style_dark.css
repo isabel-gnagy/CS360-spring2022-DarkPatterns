@@ -186,6 +186,23 @@ footer{
   border-radius: 25px;
   text-align: center;
 }
+
+/*AD POP UP*/
+.ads {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+.contentads {
+  padding: 3em;
+  background-color: #017acc;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  text-align: center;
+}
+
 .plan-btn{
   border-radius: 20px;
   background-color: #2d2d30;
