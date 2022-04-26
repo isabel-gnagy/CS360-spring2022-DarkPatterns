@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Cob's</title>
+	<link id="mode" href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+  }
+</style>
+<script>
+    var numcoins = 0;
+    function addFavAlert(ele){ 
+        let album = document.getElementsByClassName("playing-song-album")[0].src;
+        let name = document.getElementsByClassName("playing-song-name")[0].innerHTML;
+        let singer = document.getElementsByClassName("playing-song-singer")[0].innerHTML;
+
+        document.getElementsByClassName("added")[0].innerHTML = "Added to Favorites!";
+        var list = document.querySelector("table");
+        var listItem = document.createElement("tr");
+        listItem.innerHTML = 
+            `   <td><img src="${album}"></td> 
+                <td>${name}</td> 
+                <td>${singer}</td>
+                <td><button class="button button3" onclick="remove(this)">X</button></td>`
+        list.appendChild(listItem);
+        numcoins ++;
+        document.getElementById("coins").innerHTML = `${numcoins}`;
+    }
+    function remove(ele){
+        let item = ele.parentElement.parentElement;
+        let list  = document.querySelector("table");
+        list.removeChild(item);
+        numcoins --;
+        document.getElementById("coins").innerHTML = `${numcoins}`;
+    }
+    function unlockdarkmode(){
+        if(numcoins >= 10){document.getElementById("darkmode").style.display = "block";}
+        else{showpopup();}
+    }
+    function showM(){
+        document.getElementById("Oldies").style.display = "none";
+        document.getElementById("Modern").style.display = "block";
+
+        document.getElementById("modern-tab").className = "active";
+        document.getElementById("oldies-tab").className = "";
+    }
+    function showO(){
+        document.getElementById("Oldies").style.display = "block";
+        document.getElementById("Modern").style.display = "none";
+
+        document.getElementById("oldies-tab").className = "active";
+        document.getElementById("modern-tab").className = "";
+    }
+    function showpopup(){
+        document.getElementsByClassName("popup")[0].style.display = "block";
+    }
+    function myAccount(){
+        document.getElementsByClassName("acc")[0].style.display = "block";
+    }
+    function payAlert(){
+        alert("Thank you. Your payment was successful. Account plan has been updated")
+    }
+    function payAlert2(){
+        alert("Thank you. Account plan has been updated")
+    }
+    function darkmode(){
+        document.getElementById("mode").href = "style_dark.css";
+        document.getElementById("light").style.display = "none";
+        document.getElementById("dark").style.display = "block";
+        document.getElementById("addfavs").src = "images/fav.png";
+    }
+    function lightmode(){
+        document.getElementById("mode").href = "style.css";
+        document.getElementById("light").style.display = "block";
+        document.getElementById("dark").style.display = "none";
+        document.getElementById("addfavs").src = "images/favdark.png";
+    }
+    function showAd(){
+        let adsHTML = [`<a href="http://www.dolekemp96.org/agenda/issues/internet.htm" target="_blank" rel="noopener noreferrer">
+                <img style="max-width: 300px; padding-right:1em;" src="advert/zombie.jpg" alt="zombie"></a>`,
+                `<img style="max-width: 500px; padding-right:1em;" src="advert/brakepads.jpg" alt="brakes">`,
+                `<img style="max-width: 300px; padding-right:1em;" src="advert/ceral.jpg" alt="ceral">`];
+        var num = Math.floor(Math.random()*3);  
+        var daily = adsHTML[num]; 
+        var text = document.getElementsByClassName("advertise")[0];
+        text.innerHTML = daily;
+        document.getElementsByClassName("ads")[0].style.display ="block";
+    }
+    setTimeout(showAd, 10000);
+    setTimeout(showAd, 20000);
+    setTimeout(showAd, 30000);
+</script>
+<body>
+    <div class="nav"> 
+        <ul>
+            <li style="font-size: 2em; padding-right: 5em; float: left;" onclick="showAd()">Cob's Soul Music</li>
+            <li class="dropdown" id="favs" style="float:right; "><a class="dropbtn">Favorites</a>
+                <div class="dropdown-content">
+                    <table>
+                    </table>
+                </div>
+            </li>
+            <li id="acc" style="float:right; "><a onclick="myAccount()">Account</a></li>
+            <li class="dropdown-set" id="settings" style="float:right; "><img onclick="unlockdarkmode()" style="width: 50px;" src="images/settings.png">
+                <div class="dropdown-content-set" id="darkmode" style="display: none;">
+                    <img id="light" style="width: 30px;" onclick="darkmode()" src="images/darkmode.png">
+                    <img id="dark" style="width: 30px; display: none;" onclick="lightmode()" src="images/lightmode.png">
+                </div>
+            </li>
+                
+        </ul>
+        <div class="dec-sel">
+            <ul>
+                <li style="float: left; padding-right: 2em;" class="dec"><a>Decade:</a></li>
+                <li onclick="showM()"><a id="modern-tab" class="active">Modern</a></li>
+                <li onclick="showO()"><a  id="oldies-tab"class="">Oldies</a></li>
+                <li style="float:right; "><a class="dropbtn"><img style="width: 15px;" src="images/coin.png"><span id="coins" style="padding-left: 10px;"> </span></a>
+            </ul>
+        </div>    
+    </div>
+    <div class="popup" id="my-popup" style="display: none;">
+		<div class="contentbox">
+			<div class="content">
+                <div style="text-align: right;" onclick="closeForm2()">X</div>
+                <div>
+                    <h2>Unlock darkmode by collecting 10 <br> or more coins!</h1>
+                    <h4>(Earn coins by adding songs to your favorites list)</h2>
+                </div>
+            </div>
+        </div>
+    </div>       
+    <section id="Modern" style="display: block;">
+        <div class="scroll">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/Single_Ladies.png">
+                        <h3>Single ladies (Put a Ring on It)</h3>
+                        <p>Beyonce</p>
+                        <p>2009</p>
+                        <button class="button button4"  onclick="play(this)" onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/umbrella.jpg">
+                        <h3>Umbrella</h3>
+                        <p>Rihanna ft. JAY-Z</p>
+                        <p>2007</p>
+                        <button class="button button4"  onclick="play(this)"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/shake_it_off.jpeg">
+                        <h3>Shake It Off</h3>
+                        <p>Taylor Swift</p>
+                        <p>2014</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/toxic.png">
+                        <h3>Toxic</h3>
+                        <p>Brittney Spears</p>
+                        <p>2003</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/the_nights.jpeg">
+                        <h3>The Nights</h3>
+                        <p>Avicii</p>
+                        <p>2014</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/just_the_way_you_are.jpeg">
+                        <h3>Just The Way You Are</h3>
+                        <p>Bruno Mars</p>
+                        <p>2010</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/i_got_a_feeling.jpeg">
+                        <h3>I Gotta Feeling</h3>
+                        <p>Black Eyed Peas</p>
+                        <p>2009</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/sweater_weather.jpeg">
+                        <h3>Sweater Weather</h3>
+                        <p>The Neighbourhood</p>
+                        <p>2012</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/rolling_in_the_deep.jpeg">
+                        <h3>Rolling In The Deep</h3>
+                        <p>Adele</p>
+                        <p>2011</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/firework.jpeg">
+                        <h3>Firework</h3>
+                        <p>Katy Perry</p>
+                        <p>2010</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/rehab.png">
+                        <h3>Rehab</h3>
+                        <p>Amy Winehouse</p>
+                        <p>2006</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/blinding_lights.jpeg">
+                        <h3>Blinding Lights</h3>
+                        <p>The Weekend</p>
+                        <p>2020</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <div class="ads" id="my-ads" style="display: none;">
+		<div class="contentads">
+            <div style="text-align: right;" onclick="closeForm1()">X</div><br>
+            <div class="advertise">
+
+            </div>
+        </div>
+    </div> 
+    <section id="Oldies">
+        <div class="scroll">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/I_want_you_back.jpg">
+                        <h3>I Want You Back</h3>
+                        <p>The Jackson 5</p>
+                        <p>1969</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/september.jpg">
+                        <h3>September</h3>
+                        <p>Earth, Wind & Fire</p>
+                        <p>1978</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/let_it_be.jpg">
+                        <h3>Let It Be</h3>
+                        <p>The Beatles </p>
+                        <p>1970</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/living_on_a_prayer.jpg">
+                        <h3>Livin' on a Prayer</h3>
+                        <p>Bon Jovi</p>
+                        <p>1986</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/billie_jean.png">
+                        <h3>Bilie Jean</h3>
+                        <p>Micheal Jackson</p>
+                        <p>1982</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/start_me_up.jpg">
+                        <h3>Start Me Up</h3>
+                        <p>Rolling Stones</p>
+                        <p>1981</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/satisfaction.jpg">
+                        <h3>(I Can't Get No) Satisfaction</h3>
+                        <p>Rolling Stones</p>
+                        <p>1965</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/i_got_yuo.jpeg">
+                        <h3>I Got You</h3>
+                        <p>James Brown</p>
+                        <p>1964</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/dancing-queen.png">
+                        <h3>Dancing Queen</h3>
+                        <p>Abba</p>
+                        <p>1976</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/highway_to_Hell.jpg">
+                        <h3>Highway To Hell</h3>
+                        <p>AC/DC</p>
+                        <p>1979</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/stairway_to_heaven.png">
+                        <h3>Stairway to Heaven</h3>
+                        <p>Led Zepplin</p>
+                        <p>1971</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="albums/another_brink.jpg">
+                        <h3>Another Brick in the Wall</h3>
+                        <p>Pink Floyd</p>
+                        <p>1979</p>
+                        <button class="button button4"  onclick="play(this)">Listen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="acc" id="my-acc" style="display: none;">
+		<div class="contentacc">
+			<div class="acc">
+                <div style="text-align: right;" onclick="closeForm()">X</div>
+                <div>
+                    <h1>My Account</h1>
+                    <h4>Joe Shmoe</h2>
+                    <h4>jshmoe@gmail.com</h2>
+                    <br>
+                    <h2>My Plan:</h2>
+                    <div>
+                        <a onclick="payAlert2()" class="plan-btn">Basic (free)</a>
+                        <a class="plan-btn">Silver ($7/month)*</a>
+                        <a class="plan-btn">Gold ($10/month)*</a>
+                        <p style="font-size: 10px;">*a $4 service fee will be charged to all credit/debit cards</p>
+                    </div>
+                    <div class="payment" style="text-align: left;">
+                        <h3>Payment</h3>
+                        <label for="fname">Accepted Cards <br> <img src="images/payment.png" style="height: 50px; width: auto;"><br></label>
+                            
+                        <label for="cname">Name on Card</label>
+                        <input type="text" id="cname" name="cardname" placeholder="Joe M. Shmoe">
+                            
+                        <label for="ccnum">Credit card number</label>
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111222233334444">
+                            
+                        <label for="expmonth">Exp Month</label>
+                        <input type="text" id="expmonth" name="expmonth" placeholder="01">
+                
+                        <div class="row">
+                        <div class="col-50">
+                            <label for="expyear">Exp Year</label>
+                            <input type="text" id="expyear" name="expyear" placeholder="2025">
+                        </div>
+                        <div class="col-50">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" >
+                        </div>
+                    </div> 
+                    <br>                   
+                    <div style="text-align: center;"><a><button type="submit" onclick="payAlert()"
+                        style="border: 2px solid darkGreen; background-color: green; padding-right: 1em; padding-left: 1em; color: white; font-weight: bold; font-size: 20px;">
+                        Pay Now</button></a><br></div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    </div>
+    
+</body>
+<footer>
+    <div class="player" style="display: flex; justify-content: space-around; margin-top: 20px;">
+        <div>
+            <img class="playing-song-album" style="width: 100%; height: 100%;" src="images/blank.jpg">
+        </div>  
+        <div style="float: left; text-align: left; width: 200px;">
+            <p class="playing-song-name" style="height: 20px;"></p>
+            <p class="playing-song-singer"></p>
+        </div> 
+        <audio controls class="d-play" autoplay src=""></audio>  
+        <audio controls class="play" src="audio/Never Gonna Give You Up Original.mp3" autoplay> </audio>
+        <div><img onclick="addFavAlert(this)" style="width: 60px; height: 60px; margin: 1em;" id="addfavs" src="images/favdark.png"></div>
+        <div class="added" style="width: 60px; margin-right: 1em; margin-top: 20px;">Login to add to favorites!</div>
+    </div>
+    
+</footer>
+
+</html>
