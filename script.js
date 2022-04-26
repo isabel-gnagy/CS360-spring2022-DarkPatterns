@@ -22,7 +22,11 @@ function play(ele){
     document.getElementsByClassName("playing-song-name")[0].innerHTML = name;    
     document.getElementsByClassName("playing-song-singer")[0].innerHTML = singer;
     document.getElementsByClassName("d-play")[0].style.display = "none";
-    document.getElementsByClassName("play")[0].style.display = "block";
+    play = document.getElementsByClassName("play")[0].style.display = "block";
+    
+    play.autoplay = true;
+    play.load();
+
 }
 function listPlay(){
         let album = ele.parentElement.children[0].src;
