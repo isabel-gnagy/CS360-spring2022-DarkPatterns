@@ -12,6 +12,9 @@
     * {
     box-sizing: border-box;
   }
+  .column {
+    width: 33%;
+  }
 </style>
 <script>
         var favs = [];
@@ -100,8 +103,10 @@
         let adsHTML = [`<a href="http://www.dolekemp96.org/agenda/issues/internet.htm" target="_blank" rel="noopener noreferrer">
                 <img style="max-width: 300px; padding-right:1em;" src="advert/zombie.jpg" alt="zombie"></a>`,
                 `<img style="max-width: 500px; padding-right:1em;" src="advert/brakepads.jpg" alt="brakes">`,
-                `<img style="max-width: 300px; padding-right:1em;" src="advert/ceral.jpg" alt="ceral">`];
-        var num = Math.floor(Math.random()*3);  
+                `<img style="max-width: 300px; padding-right:1em;" src="advert/ceral.jpg" alt="ceral">`,
+                `<img style="max-width: 300px; padding-right:1em;" src="advert/coffe.jpg" alt="coffee">`,
+                `<img style="max-width: 300px; padding-right:1em;" src="advert/lard.jpg" alt="lard">`];
+        var num = Math.floor(Math.random()*5);  
         var daily = adsHTML[num]; 
         var text = document.getElementsByClassName("advertise")[0];
         text.innerHTML = daily;
@@ -110,6 +115,8 @@
     setTimeout(showAd, 10000);
     setTimeout(showAd, 20000);
     setTimeout(showAd, 30000);
+    setTimeout(showAd, 40000);
+    setTimeout(showAd, 50000);
 </script>
 <body>
     <div class="nav"> 
