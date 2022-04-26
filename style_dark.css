@@ -74,7 +74,7 @@ ul {
   /* Float cards css */
   .column {
     float: left;
-    width: 25%;
+    width: 50%;
     padding: 0 10px;
     margin-top: 20px;
   }
@@ -88,20 +88,20 @@ ul {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 2em;
     text-align: center;
-    background-color: #59595f;
+    background-color: #2d2d30;
   }
   .card img{
       width: 250px;
       height: 250px;
   }
   .button4 {
-    background-color: #3e3e42;
+    background-color: black;
     color: white;
     border: 2px solid #e7e7e7;
     font-size: 1em;
     padding: 8px 16px;
   }
-  .button4:hover {background-color: #2d2d30;}
+  .button4:hover {background-color: #59595f;}
 
 /* PLAYER CSS*/
 .d-play{
