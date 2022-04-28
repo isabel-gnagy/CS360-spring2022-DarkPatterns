@@ -166,6 +166,7 @@ footer{
   align-items: center;
   border-radius: 25px;
   text-align: center;
+  padding: 0;
 }
 
 /*ACCOUNT POP UP*/
@@ -173,11 +174,12 @@ footer{
   position: fixed;
   top:50%;
   left: 50%;
-  transform: translate(-50%,-50%)
+  transform: translate(-50%,-50%);
+  padding: 0;
 }
 .contentacc {
   position: relative;
-  width: 900px;
+  width: 1000px;
   height: 600px;
   background: #017acc;
   display: flex;
@@ -185,7 +187,17 @@ footer{
   align-items: center;
   border-radius: 25px;
   text-align: center;
+  padding: 0;
 }
+.plan-btn{
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  font-size: 1em;
+  padding: 8px 16px;
+}
+.plan-btn:hover {background-color: #e7e7e7;}
 
 /*AD POP UP*/
 .ads {
@@ -202,16 +214,6 @@ footer{
   border-radius: 25px;
   text-align: center;
 }
-
-.plan-btn{
-  border-radius: 20px;
-  background-color: #2d2d30;
-  color: white;
-  border: 2px solid #3e3e42;
-  font-size: 1em;
-  padding: 8px 16px;
-}
-.plan-btn:hover {background-color: #3e3e42;}
 
 /*SETTNIGS DROP DOWN*/
 .dropdown-set:hover .dropdown-content-set {display: block;}
